@@ -457,8 +457,23 @@ def main():
     
     # Start the bot
     logger.info("Starting AI Bot...")
-    application.run_polling(allowed_updates=Update.ALL_TYPES)
-
+# application.run_polling(allowed_updates=Update.ALL_TYPES)
 if __name__ == "__main__":
     main()
+
+
+
+    # For webhook deployment on Render
+    if settings.webhook_url:
+        logger.info(f"Setting webhook to {settings.webhook_url}")
+        application.run_webhook(
+            listen="0.0.0.0",
+            port=settings.port,
+            url_path=settings.telegram_bot_token,
+            webhook_url=f"{settings.webhook_url}/{settings.telegram_bot_token}"
+        )
+    else:
+        logger.info("Starting AI Bot in polling mode...")
+        application.run_polling(allowed_updates=Update.ALL_TYPES)
+
 
