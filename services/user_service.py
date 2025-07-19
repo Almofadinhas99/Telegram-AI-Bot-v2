@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime, timedelta
 from typing import Optional
-from models.user import User, PlanType
+from models.user import User, UserPlan
 
 logger = logging.getLogger(__name__)
 
