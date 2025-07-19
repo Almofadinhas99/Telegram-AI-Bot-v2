@@ -29,7 +29,7 @@ class UserService:
             username=username,
             first_name=first_name,
             last_name=last_name,
-            plan=PlanType.FREE,
+            plan=UserPlan.FREE,
             created_at=datetime.now(),
             updated_at=datetime.now(),
             last_daily_reset=datetime.now(),
@@ -67,7 +67,7 @@ class UserService:
         user.updated_at = now
         self.users[user.telegram_id] = user
 
-    async def upgrade_user_plan(self, telegram_id: int, new_plan: PlanType) -> bool:
+    async def upgrade_user_plan(self, telegram_id: int, new_plan: UserPlan) -> bool:
         """Upgrade user plan"""
         user = await self.get_user_by_telegram_id(telegram_id)
         if not user:
