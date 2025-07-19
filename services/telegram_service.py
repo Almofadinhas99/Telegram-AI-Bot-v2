@@ -3,7 +3,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from typing import Optional
 
-from models.user import User, PlanType, PLAN_CONFIGS
+from models.user import User, UserPlan, PLAN_CONFIGS
 from services.user_service import UserService
 from services.ai_service import AIService
 
