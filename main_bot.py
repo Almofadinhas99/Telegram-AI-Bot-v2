@@ -457,14 +457,10 @@ def main():
     
     # Start the bot
     logger.info("Starting AI Bot...")
-# application.run_polling(allowed_updates=Update.ALL_TYPES)
-if __name__ == "__main__":
-    main()
-
-
-
+    
     # For webhook deployment on Render
     if settings.telegram_webhook_url:
+        logger.info("Starting AI Bot in webhook mode...")
         application.run_webhook(
             listen="0.0.0.0",
             port=settings.port,
@@ -474,5 +470,8 @@ if __name__ == "__main__":
     else:
         logger.info("Starting AI Bot in polling mode...")
         application.run_polling(allowed_updates=Update.ALL_TYPES)
+
+if __name__ == "__main__":
+    main()
 
 
