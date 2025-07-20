@@ -464,13 +464,13 @@ if __name__ == "__main__":
 
 
     # For webhook deployment on Render
-    if settings.webhook_url:
-        logger.info(f"Setting webhook to {settings.webhook_url}")
+    if s    if settings.telegram_webhook_url:
+        logger.info(f"Setting webhook to {settings.telegram_webhook_url}")
         application.run_webhook(
             listen="0.0.0.0",
             port=settings.port,
             url_path=settings.telegram_bot_token,
-            webhook_url=f"{settings.webhook_url}/{settings.telegram_bot_token}"
+            webhook_url=f"{settings.telegram_webhook_url}/{settings.telegram_bot_token}"
         )
     else:
         logger.info("Starting AI Bot in polling mode...")
