@@ -464,8 +464,7 @@ if __name__ == "__main__":
 
 
     # For webhook deployment on Render
-    if s    if settings.telegram_webhook_url:
-        logger.info(f"Setting webhook to {settings.telegram_webhook_url}")
+    if settings.telegram_webhook_url:
         application.run_webhook(
             listen="0.0.0.0",
             port=settings.port,
